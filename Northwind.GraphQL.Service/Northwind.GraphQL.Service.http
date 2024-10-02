@@ -1,0 +1,6 @@
+@Northwind.GraphQL.Service_HostAddress = http://localhost:5234
+
+GET {{Northwind.GraphQL.Service_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
