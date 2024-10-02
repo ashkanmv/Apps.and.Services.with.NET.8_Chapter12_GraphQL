@@ -1,7 +1,10 @@
+using Northwind.GraphQL.Service;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddGraphQLServer()
+    .AddQueryType<Query>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -20,6 +23,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.MapGet("/", () => "Navigate to: https://localhost:5121/graphql");
 app.MapControllers();
 
+app.MapGraphQL();
 app.Run();
