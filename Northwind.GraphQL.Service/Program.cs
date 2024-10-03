@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddNorthwindContext();
 builder.Services.AddGraphQLServer()
     .AddFiltering()
+    .AddSorting()
     .RegisterDbContext<NorthwindContext>()
     .AddQueryType<Query>();
 builder.Services.AddControllers();

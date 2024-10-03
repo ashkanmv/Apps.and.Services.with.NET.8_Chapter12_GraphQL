@@ -24,6 +24,7 @@ namespace Northwind.GraphQL.Service
             db.Products.Include(p => p.Category);
 
         [UseFiltering]
+        [UseSorting]
         public IQueryable<Product> GetProducts(NorthwindContext db) =>
             db.Products.Include(p => p.Category);
         public IQueryable<Product> GetProductsInCategory(
