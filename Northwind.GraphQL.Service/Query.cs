@@ -8,7 +8,7 @@ namespace Northwind.GraphQL.Service
         public string GetGreeting() => "Hello, World!";
         public string Farewell() => "Ciao! Ciao!";
         public int RollTheDie() => Random.Shared.Next(1, 7);
-
+        
         public IQueryable<Category> GetCategories(NorthwindContext db) => db.Categories.Include(c => c.Products);
 
         public Category? GetCategory(NorthwindContext db, int id)
@@ -18,6 +18,10 @@ namespace Northwind.GraphQL.Service
             db.Entry(category).Collection(c => c.Products).Load();
             return category;
         }
+
+        [UsePaging]
+        public IQueryable<Product> GetProductsWithPaging(NorthwindContext db) =>
+            db.Products.Include(p => p.Category);
         public IQueryable<Product> GetProducts(NorthwindContext db) =>
             db.Products.Include(p => p.Category);
         public IQueryable<Product> GetProductsInCategory(
