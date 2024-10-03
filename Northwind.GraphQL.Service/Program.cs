@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddNorthwindContext();
 builder.Services.AddGraphQLServer()
+    .AddFiltering()
     .RegisterDbContext<NorthwindContext>()
     .AddQueryType<Query>();
 builder.Services.AddControllers();
