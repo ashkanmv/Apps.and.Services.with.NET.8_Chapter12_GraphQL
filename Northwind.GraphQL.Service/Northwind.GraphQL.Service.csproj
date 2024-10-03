@@ -11,7 +11,14 @@
 
   <ItemGroup>
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.9.14" />
+    <PackageReference Include="HotChocolate.Data.EntityFramework" Version="13.9.14" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Northwind.Common.DataContext.SqlServer">
+      <HintPath>..\..\..\..\apps-services-net8\code\Chapter03\Northwind.Common.DataContext.SqlServer\bin\Debug\net8.0\Northwind.Common.DataContext.SqlServer.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
