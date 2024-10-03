@@ -4,8 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
-	  <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+	  
 	  <NoWarn>AD0001</NoWarn>
   </PropertyGroup>
 
@@ -16,9 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Northwind.Common.DataContext.SqlServer">
-      <HintPath>..\..\..\..\apps-services-net8\code\Chapter03\Northwind.Common.DataContext.SqlServer\bin\Debug\net8.0\Northwind.Common.DataContext.SqlServer.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\..\Chapter03\Northwind.Common.DataContext.SqlServer\Northwind.Common.DataContext.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>
