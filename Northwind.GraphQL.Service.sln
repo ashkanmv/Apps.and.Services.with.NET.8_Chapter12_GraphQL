@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common.EntityMode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common.DataContext.SqlServer", "..\..\Chapter03\Northwind.Common.DataContext.SqlServer\Northwind.Common.DataContext.SqlServer.csproj", "{81287191-9694-447A-A90F-07120269692F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.GraphQL.Client.Mvc", "..\Northwind.GraphQL.Client.Mvc\Northwind.GraphQL.Client.Mvc\Northwind.GraphQL.Client.Mvc.csproj", "{3D02C037-AA73-4638-BEC2-4587F301C50E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{81287191-9694-447A-A90F-07120269692F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81287191-9694-447A-A90F-07120269692F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81287191-9694-447A-A90F-07120269692F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D02C037-AA73-4638-BEC2-4587F301C50E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D02C037-AA73-4638-BEC2-4587F301C50E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D02C037-AA73-4638-BEC2-4587F301C50E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D02C037-AA73-4638-BEC2-4587F301C50E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
