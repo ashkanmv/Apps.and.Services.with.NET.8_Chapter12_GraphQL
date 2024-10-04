@@ -44,4 +44,78 @@ public class Mutation
         // or some other action if it is 0.
         return new AddProductPayload(product);
     }
+
+    public async Task<UpdateProductPayload> UpdateProductPriceAsync(
+        UpdateProductPriceInput input, NorthwindContext db)
+    {
+        Product? product = await db.Products.FindAsync(input.ProductId);
+        int affectedRows = 0;
+        if (product is not null)
+        {
+            product.UnitPrice = input.UnitPrice;
+            affectedRows = await db.SaveChangesAsync();
+        }
+        return new UpdateProductPayload(product,
+            updated: affectedRows == 1);
+    }
+    public async Task<UpdateProductPayload> UpdateProductUnitsAsync(
+        UpdateProductUnitsInput input, NorthwindContext db)
+    {
+        Product? product = await db.Products.FindAsync(input.ProductId);
+        int affectedRows = 0;
+        if (product is not null)
+        {
+            product.UnitsInStock = input.UnitsInStock;
+            product.UnitsOnOrder = input.UnitsOnOrder;
+            product.ReorderLevel = input.ReorderLevel;
+            affectedRows = await db.SaveChangesAsync();
+        }
+        return new UpdateProductPayload(product,
+            updated: affectedRows == 1);
+    }
+    public async Task<DeleteProductPayload> DeleteProductAsync(
+        DeleteProductInput input, NorthwindContext db)
+    {
+        Product? product = await db.Products.FindAsync(input.ProductId);
+        int affectedRows = 0;
+        if (product is not null)
+        {
+            db.Products.Remove(product);
+            affectedRows = await db.SaveChangesAsync();
+        }
+        return new DeleteProductPayload(
+            deleted: affectedRows == 1);
+    }
 }
+
+public record UpdateProductPriceInput(
+    int? ProductId,
+    decimal? UnitPrice);
+public record UpdateProductUnitsInput(
+    int? ProductId,
+    short? UnitsInStock,
+    short? UnitsOnOrder,
+    short? ReorderLevel);
+public record DeleteProductInput(
+    int? ProductId);
+
+
+public class UpdateProductPayload
+{
+    public UpdateProductPayload(Product? product, bool updated)
+    {
+        Product = product;
+        Success = updated;
+    }
+    public Product? Product { get; }
+    public bool Success { get; }
+}
+public class DeleteProductPayload
+{
+    public DeleteProductPayload(bool deleted)
+    {
+        Success = deleted;
+    }
+    public bool Success { get; }
+}
+
