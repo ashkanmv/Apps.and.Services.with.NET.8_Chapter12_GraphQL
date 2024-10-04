@@ -9,7 +9,8 @@ builder.Services.AddGraphQLServer()
     .AddFiltering()
     .AddSorting()
     .RegisterDbContext<NorthwindContext>()
-    .AddQueryType<Query>();
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

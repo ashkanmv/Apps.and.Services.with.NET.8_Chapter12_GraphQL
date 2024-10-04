@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Common.DataContex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.GraphQL.Client.Mvc", "Northwind.GraphQL.Client.Mvc\Northwind.GraphQL.Client.Mvc\Northwind.GraphQL.Client.Mvc.csproj", "{26E1E82D-46F5-40EF-948C-8171B6586E6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.GraphQL.Client.Console", "Northwind.GraphQL.Client.Console\Northwind.GraphQL.Client.Console.csproj", "{DA8DD1C7-CEB7-4550-9FDB-0E66F76D4739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{26E1E82D-46F5-40EF-948C-8171B6586E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E1E82D-46F5-40EF-948C-8171B6586E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E1E82D-46F5-40EF-948C-8171B6586E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8DD1C7-CEB7-4550-9FDB-0E66F76D4739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8DD1C7-CEB7-4550-9FDB-0E66F76D4739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8DD1C7-CEB7-4550-9FDB-0E66F76D4739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8DD1C7-CEB7-4550-9FDB-0E66F76D4739}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
