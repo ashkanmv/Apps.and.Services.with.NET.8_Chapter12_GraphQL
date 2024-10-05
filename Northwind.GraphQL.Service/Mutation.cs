@@ -1,4 +1,5 @@
-﻿using Northwind.EntityModels;
+﻿using HotChocolate.Subscriptions;
+using Northwind.EntityModels;
 
 namespace Northwind.GraphQL.Service;
 public record AddProductInput(
@@ -46,12 +47,25 @@ public class Mutation
     }
 
     public async Task<UpdateProductPayload> UpdateProductPriceAsync(
-        UpdateProductPriceInput input, NorthwindContext db)
+        UpdateProductPriceInput input, NorthwindContext db,
+        ITopicEventSender eventSender)
     {
         Product? product = await db.Products.FindAsync(input.ProductId);
         int affectedRows = 0;
         if (product is not null)
         {
+            if (input.UnitPrice < product.UnitPrice)
+            {
+                ProductDiscount discount = new ProductDiscount()
+                {
+                    NewUnitPrice = input.UnitPrice,
+                    OriginalUnitPrice = product.UnitPrice,
+                    ProductId = product.ProductId
+                };
+
+                await eventSender.SendAsync(nameof(Subscription.OnProductDiscounted), discount);
+            }
+
             product.UnitPrice = input.UnitPrice;
             affectedRows = await db.SaveChangesAsync();
         }

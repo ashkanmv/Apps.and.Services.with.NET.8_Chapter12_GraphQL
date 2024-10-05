@@ -10,7 +10,9 @@ builder.Services.AddGraphQLServer()
     .AddSorting()
     .RegisterDbContext<NorthwindContext>()
     .AddQueryType<Query>()
-    .AddMutationType<Mutation>();
+    .AddMutationType<Mutation>()
+    .AddSubscriptionType<Subscription>()
+    .AddInMemorySubscriptions();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -33,4 +35,5 @@ app.MapGet("/", () => "Navigate to: https://localhost:5121/graphql");
 app.MapControllers();
 
 app.MapGraphQL();
+app.UseWebSockets();
 app.Run();
